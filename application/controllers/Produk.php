@@ -6,6 +6,10 @@ class Produk extends CI_Controller {
         $this->load->view('produk');
     }
 
+    public function tambah(){
+        $this->load->view('tambah-produk');
+    }
+
 }
 
 ?>
