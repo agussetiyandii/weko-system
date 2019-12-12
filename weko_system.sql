@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2019 at 03:03 PM
+-- Generation Time: Dec 12, 2019 at 04:48 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -31,6 +31,17 @@ SET time_zone = "+00:00";
 CREATE TABLE `t_kategori` (
   `id` int(11) NOT NULL,
   `kategori` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t_lokasi`
+--
+
+CREATE TABLE `t_lokasi` (
+  `id` int(11) NOT NULL,
+  `lokasi` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -81,6 +92,33 @@ CREATE TABLE `t_sub_kategori` (
   `sub_kategori` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t_sub_lokasi`
+--
+
+CREATE TABLE `t_sub_lokasi` (
+  `id` int(11) NOT NULL,
+  `id_lokasi` int(11) NOT NULL,
+  `sub_lokasi` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t_user`
+--
+
+CREATE TABLE `t_user` (
+  `id` int(11) NOT NULL,
+  `nama_lengkap` varchar(128) NOT NULL,
+  `username` varchar(128) NOT NULL,
+  `password` varchar(128) NOT NULL,
+  `role` varchar(128) NOT NULL,
+  `is_active` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -89,6 +127,12 @@ CREATE TABLE `t_sub_kategori` (
 -- Indexes for table `t_kategori`
 --
 ALTER TABLE `t_kategori`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `t_lokasi`
+--
+ALTER TABLE `t_lokasi`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -110,6 +154,18 @@ ALTER TABLE `t_sub_kategori`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `t_sub_lokasi`
+--
+ALTER TABLE `t_sub_lokasi`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `t_user`
+--
+ALTER TABLE `t_user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -117,6 +173,12 @@ ALTER TABLE `t_sub_kategori`
 -- AUTO_INCREMENT for table `t_kategori`
 --
 ALTER TABLE `t_kategori`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `t_lokasi`
+--
+ALTER TABLE `t_lokasi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -135,6 +197,18 @@ ALTER TABLE `t_stok_barang`
 -- AUTO_INCREMENT for table `t_sub_kategori`
 --
 ALTER TABLE `t_sub_kategori`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `t_sub_lokasi`
+--
+ALTER TABLE `t_sub_lokasi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `t_user`
+--
+ALTER TABLE `t_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
