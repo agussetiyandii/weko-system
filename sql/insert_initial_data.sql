@@ -1,0 +1,31 @@
+INSERT INTO t_merek (merek) VALUES ('ACER');
+INSERT INTO t_merek (merek) VALUES ('APPLE');
+INSERT INTO t_merek (merek) VALUES ('ASUS');
+INSERT INTO t_merek (merek) VALUES ('TOSHIBA');
+INSERT INTO t_merek (merek) VALUES ('HP');
+INSERT INTO t_merek (merek) VALUES ('DELL');
+INSERT INTO t_merek (merek) VALUES ('PANASONIC');
+INSERT INTO t_merek (merek) VALUES ('LENOVO');
+INSERT INTO t_merek (merek) VALUES ('MSI');
+INSERT INTO t_merek (merek) VALUES ('NEC');
+INSERT INTO t_merek (merek) VALUES ('MICROSOFT');
+INSERT INTO t_merek (merek) VALUES ('PACKARD BELL');
+INSERT INTO t_merek (merek) VALUES ('FUJITSU');
+INSERT INTO t_merek (merek) VALUES ('COMPAQ');
+INSERT INTO t_merek (merek) VALUES ('SAMSUNG');
+INSERT INTO t_merek (merek) VALUES ('SONY VAIO');
+
+INSERT INTO t_kategori (kategori) VALUES ('LAPTOP');
+INSERT INTO t_kategori (kategori) VALUES ('AKSESORIS');
+INSERT INTO t_kategori (kategori) VALUES ('DESKTOP');
+INSERT INTO t_kategori (kategori) VALUES ('MONITOR');
+INSERT INTO t_kategori (kategori) VALUES ('SERVER');
+INSERT INTO t_kategori (kategori) VALUES ('PRINTER');
+INSERT INTO t_kategori (kategori) VALUES ('HANDPHONE');
+INSERT INTO t_kategori (kategori) VALUES ('HARDWARE');
+INSERT INTO t_kategori (kategori) VALUES ('ELEKTRONIK');
+
+INSERT INTO t_lokasi (lokasi) VALUES ('BATAM');
+INSERT INTO t_lokasi (lokasi) VALUES ('MEDAN');
+INSERT INTO t_lokasi (lokasi) VALUES ('JAKARTA');
+INSERT INTO t_lokasi (lokasi) VALUES ('SINGAPURA');
