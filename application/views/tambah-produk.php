@@ -59,38 +59,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 						</div>
 						<div class="form-group row">
+							<?php $data_merek = $this->db->get('t_merek')->result(); ?>
 							<label for="merek" class="col-xl-3 col-form-label">Merek</label>
 							<div class="col-xl-9">
 								<select class="form-control" id="merek" name="merek">
-									<option value="Acer">Acer</option>
-									<option value="HP">HP</option>
-									<option value="Dell">Dell</option>
+									<?php foreach($data_merek as $data): ?>
+									<option value="<?= $data->id ?>"><?= $data->merek ?></option>
+									<?php endforeach; ?>
 								</select>
 							</div>
 						</div>
 						<div class="form-group row">
+							<?php $data_kategori = $this->db->get('t_kategori')->result(); ?>
 							<label for="kategoriBarang" class="col-xl-3 col-form-label">Kategori barang</label>
 							<div class="col-xl-4">
-								<select class="form-control" name="kategoriBarang">
-									<option value="Laptop">Laptop</option>
+								<select id="select-category" class="form-control" name="kategoriBarang">
+									<?php foreach($data_kategori as $data): ?>
+									<option value="<?= $data->id ?>"><?= $data->kategori ?></option>
+									<?php endforeach; ?>
 								</select>
 							</div>
 							<div class="col-xl-4">
-								<select class="form-control" name="subKategoriBarang">
-									<option value="Notebook">Notebook</option>
+								<select id="select-sub-kategori" class="form-control" name="subKategoriBarang">
+									<option value="Notebook">(Akan disesuaikan)</option>
 								</select>
 							</div>
 						</div>
 						<div class="form-group row">
+							<?php $data_lokasi = $this->db->get('t_lokasi')->result(); ?>
 							<label for="lokasiBarang" class="col-xl-3 col-form-label">Lokasi barang</label>
 							<div class="col-xl-4">
 								<select class="form-control" name="lokasiBarang">
-									<option value="Batam">Batam</option>
+									<?php foreach($data_lokasi as $data): ?>
+									<option value="<?= $data->id ?>"><?= $data->lokasi ?></option>
+									<?php endforeach; ?>
 								</select>
 							</div>
 							<div class="col-xl-4">
 								<select class="form-control" name="subLokasiBarang">
-									<option value="Lantai 1">Lantai 1</option>
+									<option value="Lantai 1">(Akan disesuaikan)</option>
 								</select>
 							</div>
 						</div>
@@ -127,6 +134,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 	</div>
+	<?php $this->load->view('_partials/js.php'); ?>
 </body>
 
 </html>
