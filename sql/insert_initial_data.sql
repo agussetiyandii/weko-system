@@ -104,11 +104,20 @@ INSERT INTO t_lokasi (lokasi) VALUES ('JAKARTA');
 INSERT INTO t_lokasi (lokasi) VALUES ('SINGAPURA');
 
 -- Insert data to t_sub_lokasi
-INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi) VALUES(1, 'LT.1 (Gudang)');
-INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi) VALUES(1, 'LT.2');
-INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi) VALUES(2, 'LT.1');
-INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi) VALUES(2, 'LT.2');
-INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi) VALUES(2, 'LT.3');
-INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi) VALUES(3, 'LT.1');
-INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi) VALUES(3, 'LT.2');
-INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi) VALUES(4, 'GUDANG');
+INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi_1) VALUES(1, 'LT.1 (Gudang)');
+INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi_1) VALUES(1, 'LT.2');
+INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi_1, sub_lokasi_2) VALUES(2, 'LT.1', 'RAK 1');
+INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi_1, sub_lokasi_2) VALUES(2, 'LT.1', 'RAK 2');
+INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi_1, sub_lokasi_2) VALUES(2, 'LT.1', 'RAK 3');
+INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi_1, sub_lokasi_2) VALUES(2, 'LT.1', 'RAK 4');
+INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi_1, sub_lokasi_2) VALUES(2, 'LT.2', 'RAK 1');
+INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi_1, sub_lokasi_2) VALUES(2, 'LT.2', 'RAK 2');
+INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi_1, sub_lokasi_2) VALUES(2, 'LT.2', 'RAK 3');
+INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi_1, sub_lokasi_2) VALUES(2, 'LT.2', 'RAK 4');
+INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi_1, sub_lokasi_2) VALUES(2, 'LT.3', 'RAK 1');
+INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi_1, sub_lokasi_2) VALUES(2, 'LT.3', 'RAK 2');
+INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi_1, sub_lokasi_2) VALUES(2, 'LT.3', 'RAK 3');
+INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi_1, sub_lokasi_2) VALUES(2, 'LT.3', 'RAK 4');
+INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi_1) VALUES(3, 'LT.1');
+INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi_1) VALUES(3, 'LT.2');
+INSERT INTO t_sub_lokasi (id_lokasi, sub_lokasi_1) VALUES(4, 'GUDANG');
