@@ -10,4 +10,3 @@
 <script src="<?php echo base_url();?>assets/plugins/peity-chart/jquery.peity.min.js"></script>
 <script src="<?php echo base_url();?>assets/pages/dashboard.js"></script><!-- App js -->
 <script src="<?php echo base_url();?>assets/js/app.js"></script>
-<script src="<?php echo base_url();?>assets/js/script.js"></script>
