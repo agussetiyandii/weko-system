@@ -62,18 +62,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</tr>
 								</thead>
 								<tbody>
+									<?php $no = 1; ?>
+									<?php foreach($dataProduk as $data): ?>
 									<tr class="text-center">
-										<td>1</td>
-										<td>(Gambar)</td>
-										<td>DELL</td>
-										<td>DELL PRECESIION M6400</td>
-										<td>LAPTOP/NOTEBOOK</td>
+										<td><?= $no++ ?></td>
+										<td>
+											<?php $fileGambar = $data['gambar'] ?>
+											<img class="img-thumbnail" src="<?= base_url("assets/images/products/$fileGambar") ?>" alt="<?= $fileGambar ?>" width="100" height="100">
+										</td>
+										<?php 
+											$dataMerek = $this->db->get_where('t_merek', ['id' => $data['id_merek']])->row_array();
+										?>
+										<td><?= $dataMerek['merek'] ?></td>
+										<td><?= $data['nama_barang'] ?></td>
+										<?php 
+											$dataFullKategori = $this->db->get_where('t_sub_kategori', ['id' => $data['id_full_kategori']])->row_array();
+											$dataKategori = $this->db->get_where('t_kategori', ['id' => $dataFullKategori['id_kategori']])->row_array();
+										?>
+										<td><?= $dataKategori['kategori'] ?>/<?= $dataFullKategori['sub_kategori'] ?></td>
 										<td>45 PCS</td>
 										<td>4 PCS</td>
 										<td>15 PCS</td>
 										<td>8 PCS</td>
 										<td>72 PCS</td>
 									</tr>
+									<?php endforeach; ?>
 								</tbody>
 							</table>
 						</div>

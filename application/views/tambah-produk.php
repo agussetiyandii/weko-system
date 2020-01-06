@@ -40,11 +40,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="row">
 					<div class="col-xl-3">
 						<form action="<?= base_url('produk/simpan_produk') ?>" method="post" enctype="multipart/form-data">
-							<div class="form-group" id="upload-gambar">
-								<input type="file" name="gambar_produk" class="form-control">
+							<div class="form-group row" id="upload-gambar">
+								<input type="file" name="gambar_produk" class="form-control" id="upload-image">
+							</div>
+							<div class="row text-center">
+								<img class="img-thumbnail rounded" id="image-preview">
 							</div>
 					</div>
-					<div class="col-xl-7">
+					<div class="col-xl-7 ml-2">
 						<div class="form-group row">
 							<label for="asalBarang" class="col-xl-3 col-form-label">Asal barang</label>
 							<div class="col-xl-4">
@@ -191,7 +194,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				let subLokasi1 = $('#select-sub-lokasi-1').val();
 				loadSubLokasi2(id, subLokasi1);
 			});
+
+			$('#upload-image').change(function(event){
+				let reader = new FileReader();
+				reader.onload = function(){
+					$('#image-preview').attr('src', reader.result);
+				}
+				reader.readAsDataURL(event.target.files[0]);
+			});
 		});
+		
 
 		function loadSubKategori(id){
 			$.get("<?= base_url('produk/load_sub_kategori/') ?>" + id, function(data){
