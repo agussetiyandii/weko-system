@@ -12,15 +12,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="shortcut icon" href="assets/images/favicon.ico">
 
 	<?php $this->load->view("_partials/css.php") ?>
-    <style>
-        #form-search{
-            margin-left: -15px;
-        }
+	<style>
+		#form-search {
+			margin-left: -15px;
+		}
 
-        #add-button{
-            margin-left : 418px;
-        }
-    </style>
+		#add-button {
+			margin-left: 418px;
+		}
+
+	</style>
 </head>
 
 <body>
@@ -32,15 +33,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="col">
 					<div class="card-body">
 						<div class="d-flex">
-                            <div id="form-search" class="justify-content-start col-sm-6">
-                                <form action="" method="get">
-                                    <input type="text" class="form-control" name="keyword"
-                                        placeholder="Cari barang">
-                                </form>
-                            </div>
-                            <div id="add-button" class="offset-sm-4 justify-content-end">
-							    <a href="<?= base_url('produk/tambah') ?>" class="btn btn-success">Tambah produk</a>
-                            </div>
+							<div id="form-search" class="justify-content-start col-sm-6">
+								<form action="" method="get">
+									<input type="text" class="form-control" name="keyword" placeholder="Cari barang">
+								</form>
+							</div>
+							<div id="add-button" class="offset-sm-4 justify-content-end">
+								<a href="<?= base_url('produk/tambah') ?>" class="btn btn-success">Tambah produk</a>
+							</div>
 						</div>
 						<div class="table-responsive mt-2">
 							<table class="table table-hover table-bordered">
