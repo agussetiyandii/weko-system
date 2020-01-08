@@ -80,11 +80,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											$dataKategori = $this->db->get_where('t_kategori', ['id' => $dataFullKategori['id_kategori']])->row_array();
 										?>
 										<td><?= $dataKategori['kategori'] ?>/<?= $dataFullKategori['sub_kategori'] ?></td>
-										<td>45 PCS</td>
-										<td>4 PCS</td>
-										<td>15 PCS</td>
-										<td>8 PCS</td>
-										<td>72 PCS</td>
+
+										<?php 
+											$dataStok = $this->db->get_where('t_stok_barang', ['nama_barang' => $data['nama_barang']])->row_array();
+											$jumlah = $dataStok['stok_singapura'] + $dataStok['stok_batam'] + $dataStok['stok_medan'] + $dataStok['stok_jakarta'];
+										?>
+										<td><?= $dataStok['stok_singapura'] ?></td>
+										<td><?= $dataStok['stok_batam'] ?></td>
+										<td><?= $dataStok['stok_medan'] ?></td>
+										<td><?= $dataStok['stok_jakarta'] ?></td>
+										<td><?= $jumlah ?></td>
 									</tr>
 									<?php endforeach; ?>
 								</tbody>
