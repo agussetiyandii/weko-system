@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2020 at 04:22 AM
+-- Generation Time: Jan 08, 2020 at 02:37 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -129,8 +129,7 @@ CREATE TABLE `t_produk` (
 --
 
 INSERT INTO `t_produk` (`id`, `asal_barang`, `nama_barang`, `id_merek`, `id_full_kategori`, `id_lokasi`, `id_full_lokasi`, `kondisi`, `info_barang`, `harga`, `jumlah`, `remark`, `gambar`) VALUES
-(11, 'Stock supplier', 'Lenovo gaming', 8, 2, 1, 1, 'Baru', 'Sudah Tes', 5000000, 45, 'Siap pakai', 'laptop_lenovo13.jpg'),
-(12, 'Stock supplier', 'lenovo gaming', 8, 2, 3, 15, 'Baru', 'Sudah Tes', 3000000, 100, 'Oke\r\n', 'laptop_lenovo14.jpg');
+(13, 'Stock supplier', 'Lenovo gaming', 8, 2, 1, 1, 'Baru', 'Sudah Tes', 5000000, 50, 'Siap dipakai', 'laptop_lenovo15.jpg');
 
 -- --------------------------------------------------------
 
@@ -141,10 +140,10 @@ INSERT INTO `t_produk` (`id`, `asal_barang`, `nama_barang`, `id_merek`, `id_full
 CREATE TABLE `t_stok_barang` (
   `id` int(11) NOT NULL,
   `nama_barang` varchar(128) NOT NULL,
-  `stok_singapura` int(11) DEFAULT NULL,
-  `stok_batam` int(11) DEFAULT NULL,
-  `stok_medan` int(11) DEFAULT NULL,
-  `stok_jakarta` int(11) DEFAULT NULL
+  `stok_singapura` int(11) DEFAULT '0',
+  `stok_batam` int(11) DEFAULT '0',
+  `stok_medan` int(11) DEFAULT '0',
+  `stok_jakarta` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -152,7 +151,7 @@ CREATE TABLE `t_stok_barang` (
 --
 
 INSERT INTO `t_stok_barang` (`id`, `nama_barang`, `stok_singapura`, `stok_batam`, `stok_medan`, `stok_jakarta`) VALUES
-(2, 'Lenovo gaming', NULL, 45, NULL, 100);
+(3, 'Lenovo gaming', 0, 50, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -361,13 +360,13 @@ ALTER TABLE `t_merek`
 -- AUTO_INCREMENT for table `t_produk`
 --
 ALTER TABLE `t_produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `t_stok_barang`
 --
 ALTER TABLE `t_stok_barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `t_sub_kategori`
