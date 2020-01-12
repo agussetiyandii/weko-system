@@ -58,17 +58,16 @@
 					<li class="menu-title">Main</li>
 					<li><a href="<?php echo site_url('dashboard')?>" class="waves-effect"><i class="ti-home"></i><span>
 								Dashboard</span></a></li>
-					<li><a href="javascript:void(0);" class="waves-effect"><i class="ti-menu"></i><span> Inventori<span
-									class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></span></a>
-						<ul class="submenu">
-							<li><a href="<?php echo site_url('produk')?>">Produk</a></li>
-						</ul>
-					</li>
+					<li><a href="<?php echo site_url('produk')?>"> <i class="ti-menu"></i><span>
+								Produk</span></a></li>
+					
 					<li><a href="javascript:void(0);" class="waves-effect"><i class="ti-menu"></i><span> Produksi<span
 									class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></span></a>
-						<!-- <ul class="submenu">
-							<li><a href="<?php echo site_url('produk')?>">Produk</a></li>
-						</ul> -->
+						<ul class="submenu">
+							<li><a href="<?php echo site_url('batam')?>"> Batam</a></li>
+							<li><a href="<?php echo site_url('jakarta')?>"> Jakarta</a></li>
+							<li><a href="<?php echo site_url('medan')?>"> Medan</a></li>
+						</ul>
 					</li>
 					<li><a href="javascript:void(0);" class="waves-effect"><i class="ti-menu"></i><span> Transaksi<span
 									class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></span></a>
@@ -82,11 +81,15 @@
 							<li><a href="<?php echo site_url('produk')?>">Produk</a></li>
 						</ul> -->
 					</li>
-					<li><a href="<?php echo site_url('customer')?>"> <i class="ti-menu"></i><span>
-								Pelanggan</span></a></li>
+					<li><a href="javascript:void(0);" class="waves-effect"><i class="ti-menu"></i><span> Relasi<span
+									class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></span></a>
+						<ul class="submenu">
+							<li><a href="<?php echo site_url('customer')?>"> Pelanggan</a></li>
+							<li><a href="<?php echo site_url('suplier')?>"> Supplier</a></li>
+						</ul>
+					</li>
 					<li><a href="<?php echo site_url('mutasi')?>"> <i class="ti-menu"></i><span>
 								Mutasi</span></a></li>
-
 				</ul>
 			</div><!-- Sidebar -->
 			<div class="clearfix"></div>

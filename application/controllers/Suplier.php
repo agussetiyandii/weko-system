@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Customer extends CI_Controller {
+class Suplier extends CI_Controller {
     public function index(){
-        $this->load->view('customer');
+        $this->load->view('suplier');
     }
 
     public function add(){
-        $this->load->view('addCustomer');
+        $this->load->view('addSuplier');
     }
 }

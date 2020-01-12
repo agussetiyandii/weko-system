@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
-	<title>Customer - Inventory System</title>
+	<title>Mutasi - Inventory System</title>
 	<meta content="Admin Dashboard" name="description">
 	<meta content="Themesbrand" name="author">
 	<link rel="shortcut icon" href="assets/images/favicon.ico">
@@ -28,18 +28,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="page-title-box">
 					<div class="row align-items-center">
 						<div class="col-sm-6">
-							<h4 class="page-title">Data Pelanggan</h4>
+							<h4 class="page-title">Data Mutasi</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-								<li class="breadcrumb-item"><a href="javascript:void(0);">pelanggan</a></li>
-								<li class="breadcrumb-item active">Data Pelanggan</li>
+								<li class="breadcrumb-item"><a href="javascript:void(0);">Mutasi</a></li>
+								<li class="breadcrumb-item active">Data Mutasi</li>
 							</ol>
 						</div>
 						<div class="col-sm-6">
 							<div class="float-right d-none d-md-block">
 								<div id="add-button">
-									<a href="<?= base_url('customer/add') ?>" class="btn btn-success mdi mdi-plus mr-2"> Tambah
-										Pelanggan</a>
+									<a href="<?= base_url('mutasi/add') ?>" class="btn btn-success mdi mdi-plus mr-2"> Tambah
+										Mutasi</a>
 								</div>
 							</div>
 						</div>
@@ -54,58 +54,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<thead>
 										<tr>
 											<th style="text-align:center" width="20px" >No</th>
-											<th style="text-align:center">Nama Pelanggan</th>
-											<th style="text-align:center">No. Telp</th>
-											<th style="text-align:center">Kota</th>
-											<th style="text-align:center">Kredit</th>
-											<th style="text-align:center">Sisa Hutang</th>
+											<th style="text-align:center">Tanggal</th>
+											<th style="text-align:center">Ekspedisi</th>
+											<th style="text-align:center">Kode / Resi</th>
+											<th style="text-align:center">Asal</th>
+                      <th style="text-align:center">Tujuan</th>
+                      <th style="text-align:center">Kotak (pcs)</th>
 											<th></th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
 											<td style="text-align:center">1</td>
-											<td>Edi</td>
-											<td>0811 1234 567</td>
-											<td>Batam</td>
-											<td style="text-align:right">Rp50.000.000</td>
-											<td style="text-align:right">Rp2.000.000</td>
+											<td style="text-align:center">12 Januari 2020</td>
+											<td style="text-align:center">JNE</td>
+											<td style="text-align:center">54955551984</td>
+											<td style="text-align:center">BATAM</td>
+                      <td style="text-align:center">JKT</td>
+                      <td style="text-align:center">4</td>
 											<td style="text-align:center">
 													<a href="<?= base_url('#') ?>"
 														class="btn btn-outline-warning mdi dripicons-document-edit mr-2"></a>
-													<a href="<?= base_url('#') ?>"
-														class="btn btn-outline-danger mdi dripicons-document-delete mr-2"></a>
 											</td>
 										</tr>
-										<tr>
-											<td style="text-align:center">2</td>
-											<td>Boy</td>
-											<td>0811 1234 567</td>
-											<td>Batam</td>
-											<td style="text-align:right">Rp50.000.000</td>
-											<td style="text-align:right">Rp2.000.000</td>
-											<td style="text-align:center">
-													<a href="<?= base_url('#') ?>"
-														class="btn btn-outline-warning mdi dripicons-document-edit mr-2"></a>
-													<a href="<?= base_url('#') ?>"
-														class="btn btn-outline-danger mdi dripicons-document-delete mr-2"></a>
-											</td>
-										</tr>
-										<tr>
-											<td style="text-align:center">3</td>
-											<td>Rusdi</td>
-											<td>0811 1234 567</td>
-											<td>Batam</td>
-											<td style="text-align:right">Rp50.000.000</td>
-											<td style="text-align:right">Rp2.000.000</td>
-											<td style="text-align:center">
-													<a href="<?= base_url('#') ?>"
-														class="btn btn-outline-warning mdi dripicons-document-edit mr-2"></a>
-													<a href="<?= base_url('#') ?>"
-														class="btn btn-outline-danger mdi dripicons-document-delete mr-2"></a>
-											</td>
-										</tr>
-
 									</tbody>
 								</table>
 							</div>
