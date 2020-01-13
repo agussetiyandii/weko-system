@@ -32,69 +32,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="row">
 				<div class="col">
 					<div class="card-body">
-						<div class="d-flex">
-							<div id="form-search" class="justify-content-start col-sm-6">
-								<form action="" method="get">
-									<input type="text" class="form-control" name="keyword" placeholder="Cari barang">
-								</form>
-							</div>
-							<div id="add-button" class="offset-sm-4 justify-content-end">
-								<a href="<?= base_url('produk/tambah') ?>" class="btn btn-success">Tambah produk</a>
-							</div>
-						</div>
-						<div class="table-responsive mt-2">
-							<table class="table table-hover table-bordered">
-								<thead class="text-center">
-									<tr>
-										<th class="align-middle" rowspan="2" scope="col">No</th>
-										<th class="align-middle" rowspan="2" scope="col">Gambar produk</th>
-										<th class="align-middle" rowspan="2" scope="col">Merek</th>
-										<th class="align-middle" rowspan="2" scope="col">Daftar Barang</th>
-										<th class="align-middle" rowspan="2" scope="col">Kategori Barang</th>
-										<th colspan="4" scope="col">Semua lokasi</th>
-										<th class="align-middle" rowspan="2" scope="col">Total</th>
-									</tr>
-									<tr>
-										<th scope="col">SGP</th>
-										<th scope="col">BTM</th>
-										<th scope="col">MDN</th>
-										<th scope="col">JKT</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php $no = 1; ?>
-									<?php foreach($dataProduk as $data): ?>
-									<tr class="text-center">
-										<td><?= $no++ ?></td>
-										<td>
-											<?php $fileGambar = $data['gambar'] ?>
-											<img class="img-thumbnail" src="<?= base_url("assets/images/products/$fileGambar") ?>" alt="<?= $fileGambar ?>" width="100" height="100">
-										</td>
-										<?php 
-											$dataMerek = $this->db->get_where('t_merek', ['id' => $data['id_merek']])->row_array();
-										?>
-										<td><?= $dataMerek['merek'] ?></td>
-										<td><?= $data['nama_barang'] ?></td>
-										<?php 
-											$dataFullKategori = $this->db->get_where('t_sub_kategori', ['id' => $data['id_full_kategori']])->row_array();
-											$dataKategori = $this->db->get_where('t_kategori', ['id' => $dataFullKategori['id_kategori']])->row_array();
-										?>
-										<td><?= $dataKategori['kategori'] ?>/<?= $dataFullKategori['sub_kategori'] ?></td>
-
-										<?php 
-											$dataStok = $this->db->get_where('t_stok_barang', ['nama_barang' => $data['nama_barang']])->row_array();
-											$jumlah = $dataStok['stok_singapura'] + $dataStok['stok_batam'] + $dataStok['stok_medan'] + $dataStok['stok_jakarta'];
-										?>
-										<td><?= $dataStok['stok_singapura'] ?></td>
-										<td><?= $dataStok['stok_batam'] ?></td>
-										<td><?= $dataStok['stok_medan'] ?></td>
-										<td><?= $dataStok['stok_jakarta'] ?></td>
-										<td><?= $jumlah ?></td>
-									</tr>
-									<?php endforeach; ?>
-								</tbody>
-							</table>
-						</div>
+						<table id="datatable" class="table table-bordered dt-responsive nowrap"
+							style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+							<thead>
+								<tr>
+									<th style="text-align:center" width="auto">No</th>
+									<th style="text-align:center" width="auto">Gambar</th>
+									<th style="text-align:center" width="auto">Merek</th>
+									<th style="text-align:center" width="auto">Nama Barang</th>
+									<th style="text-align:center" width="auto">Kategori</th>
+									<th style="text-align:center" width="auto">Batam</th>
+									<th style="text-align:center" width="auto">Medan</th>
+									<th style="text-align:center" width="auto">Singapura</th>
+									<th style="text-align:center" width="auto">Jakarta</th>
+									<th style="text-align:center" width="auto">Total</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="text-align:center">1</td>
+									<td></td>
+									<td>DELL</td>
+									<td>DELL PRECESIION M6400 i5 6/320/128</td>
+									<td>LAPTOP/NOTEBOOK</td>
+									<td>2 pcs</td>
+									<td>1 pcs</td>
+									<td>1 pcs</td>
+									<td>5 pcs</td>
+									<td>9 pcs</td>
+									<td style="text-align:center">
+										<a href="<?= base_url('#') ?>"
+											class="btn btn-outline-warning mdi dripicons-document-edit mr-2"></a>
+										<a href="<?= base_url('#') ?>"
+											class="btn btn-outline-danger mdi dripicons-document-delete mr-2"></a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
