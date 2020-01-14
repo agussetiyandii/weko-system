@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		#btnSubmit {
 			margin-left: 155px;
 		}
+
 		/* #select-sub-lokasi-2{
 			display: none;
 		} */
@@ -158,13 +159,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<?php $this->load->view('_partials/js.php'); ?>
 	<script>
-    	$(document).ready(function(){
+		$(document).ready(function () {
 			$('#select-sub-kategori, #select-sub-lokasi-1').attr('disabled', 'true');
 			$('#select-sub-lokasi-2').hide();
 
-			$('#select-kategori').change(function(){
+			$('#select-kategori').change(function () {
 				let id = $(this).val();
-				if(id == 0){
+				if (id == 0) {
 					$('#select-sub-kategori').attr('disabled', 'true');
 				} else {
 					$('#select-sub-kategori').removeAttr('disabled');
@@ -172,15 +173,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				loadSubKategori(id);
 			});
 
-			$('#select-lokasi').change(function(){
+			$('#select-lokasi').change(function () {
 				let id = $(this).val();
-				if(id == 0){
+				if (id == 0) {
 					$('#select-sub-lokasi-1').attr('disabled', 'true');
 				} else {
 					$('#select-sub-lokasi-1').removeAttr('disabled');
 				}
 
-				if(id == 2){
+				if (id == 2) {
 					$('#select-sub-lokasi-2').show();
 				} else {
 					$('#select-sub-lokasi-2').empty().hide();
@@ -189,39 +190,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				loadSubLokasi1(id);
 			});
 
-			$('#select-sub-lokasi-1').change(function(){
+			$('#select-sub-lokasi-1').change(function () {
 				let id = $('#select-lokasi').val();
 				let subLokasi1 = $('#select-sub-lokasi-1').val();
 				loadSubLokasi2(id, subLokasi1);
 			});
 
-			$('#upload-image').change(function(event){
+			$('#upload-image').change(function (event) {
 				let reader = new FileReader();
-				reader.onload = function(){
+				reader.onload = function () {
 					$('#image-preview').attr('src', reader.result);
 				}
 				reader.readAsDataURL(event.target.files[0]);
 			});
 		});
-		
 
-		function loadSubKategori(id){
-			$.get("<?= base_url('produk/load_sub_kategori/') ?>" + id, function(data){
+
+		function loadSubKategori(id) {
+			$.get("<?= base_url('produk/load_sub_kategori/') ?>" + id, function (data) {
 				$('#select-sub-kategori').html(data);
 			});
 		}
 
-		function loadSubLokasi1(id){
-			$.get("<?= base_url('produk/load_sub_lokasi_1/') ?>" + id, function(data){
+		function loadSubLokasi1(id) {
+			$.get("<?= base_url('produk/load_sub_lokasi_1/') ?>" + id, function (data) {
 				$('#select-sub-lokasi-1').html(data);
 			});
 		}
 
-		function loadSubLokasi2(id, subLokasi1){
-			$.get(`<?= base_url('produk/load_sub_lokasi_2/') ?>${id}/${subLokasi1}`, function(data){
+		function loadSubLokasi2(id, subLokasi1) {
+			$.get(`<?= base_url('produk/load_sub_lokasi_2/') ?>${id}/${subLokasi1}`, function (data) {
 				$('#select-sub-lokasi-2').html(data);
 			});
 		}
+
 	</script>
 
 </body>
