@@ -15,6 +15,7 @@ class Produk extends CI_Controller {
     }
 
     public function simpan_produk(){
+        // proses upload
         $file_name = '';
 
         $config['upload_path']          = './assets/images/products';
@@ -29,58 +30,11 @@ class Produk extends CI_Controller {
             $file_name = $data['file_name'];
         }
 
-        $where = [
-            'id_lokasi' => $this->input->post('idLokasiBarang'),
-            'sub_lokasi_1' => $this->input->post('subLokasiBarang1'),
-            'sub_lokasi_2' => $this->input->post('subLokasiBarang2')
-        ];
-        if($where['sub_lokasi_2'] == NULL) $where['sub_lokasi_2'] = '';
-        $queryLokasi = $this->db->get_where('t_sub_lokasi', $where)->row();
+        // proses penyimpanan file
 
-        $asal_barang = $this->input->post('asalBarang');
-        $nama_barang = $this->input->post('namaBarang');
-        $id_merek = $this->input->post('idMerek');
-        $id_full_kategori = $this->input->post('idSubKategoriBarang');
-        $id_lokasi = $this->input->post('idLokasiBarang');
-        $id_full_lokasi = $queryLokasi->id;
-        $kondisi = $this->input->post('kondisi');
-        $info_barang = $this->input->post('infoBarang');
-        $harga = $this->input->post('harga');
-        $jumlah = $this->input->post('jumlah');
-        $remark = $this->input->post('remark');
-
-        $data = [
-            'asal_barang' => $asal_barang,
-            'nama_barang' => $nama_barang,
-            'id_merek' => $id_merek,
-            'id_full_kategori' => $id_full_kategori,
-            'id_lokasi' => $id_lokasi,
-            'id_full_lokasi' => $id_full_lokasi,
-            'kondisi' => $kondisi,
-            'info_barang' => $info_barang,
-            'harga' => $harga,
-            'jumlah' => $jumlah,
-            'remark' => $remark,
-            'gambar' => $file_name
-        ];
-        $this->db->insert('t_produk', $data);
-        $dataLokasi = $this->db->get_where('t_lokasi', ['id' => $id_lokasi])->row()->lokasi;
-        // jika data produk ti t_stok_barang telah ada , maka ubah stoknya
-        if($this->db->get_where('t_stok_barang')->num_rows() > 0){
-            $this->db->update('t_stok_barang', [
-                'stok_'.$dataLokasi => $data['jumlah']
-            ],[
-                'nama_barang' => $data['nama_barang']
-            ]);
-        } else {
-            // selain itu, tambahkan produk dan stoknya
-            $this->db->insert('t_stok_barang', [
-                'nama_barang' => $data['nama_barang'],
-                'stok_'.$dataLokasi => $data['jumlah']
-            ]);
-        }
-        redirect(base_url('produk/index'));
     }
+
+    // fungsi-fungsi untuk melakukan jquery AJAX
 
     public function load_sub_kategori($id){
         $data['data_sub_kategori'] = $this->db->get_where('t_sub_kategori', ['id_kategori' => $id])->result();
