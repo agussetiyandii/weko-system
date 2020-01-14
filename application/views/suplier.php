@@ -63,13 +63,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										</tr>
 									</thead>
 									<tbody>
+										<?php $no = 1; ?>
+										<?php foreach($dataSuplier as $data): ?>
 										<tr>
-											<td style="text-align:center">1</td>
-											<td>Bok Cok Tong</td>
-											<td></td>
-											<td>Singapore</td>
-											<td></td>
-											<td></td>
+											<td style="text-align:center"><?= $no++ ?></td>
+											<td><?= $data['nama_suplier'] ?></td>
+											<td><?= $data['no_telp'] ?></td>
+											<td><?= $data['negara'] ?></td>
+											<td><?= $data['kota'] ?></td>
+											<td><?= $data['email'] ?></td>
 											<td style="text-align:center">
 													<a href="<?= base_url('#') ?>"
 														class="btn btn-outline-warning mdi dripicons-document-edit mr-2"></a>
@@ -77,6 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 														class="btn btn-outline-danger mdi dripicons-document-delete mr-2"></a>
 											</td>
 										</tr>
+										<?php endforeach; ?>
 									</tbody>
 								</table>
 							</div>

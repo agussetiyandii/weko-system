@@ -43,48 +43,70 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="card-body">
 								<div class="row">
 									<div class="col-md-6">
-										<div class="form-group row"><label for="txtFirstNameBilling"
-												class="col-lg-3 col-form-label">Nama</label>
-											<div class="col-lg-9"><input id="txtFirstNameBilling" name="txtFirstNameBilling" type="text"
+										<div class="form-group row"><label for="namaCustomer" class="col-lg-3 col-form-label">Nama</label>
+											<div class="col-lg-9"><input id="namaCustomer" name="namaCustomer" type="text"
 													class="form-control"></div>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-6">
-										<div class="form-group row"><label for="txtCompanyBilling" class="col-lg-3 col-form-label">No.
+										<div class="form-group row"><label for="noTelp" class="col-lg-3 col-form-label">No.
 												Telp</label>
-											<div class="col-lg-9"><input id="txtCompanyBilling" name="txtCompanyBilling" type="text"
-													class="form-control"></div>
+											<div class="col-lg-9"><input id="noTelp" name="noTelp" type="text" class="form-control"></div>
 										</div>
 									</div>
 									<div class="col-md-6">
-										<div class="form-group row"><label for="txtEmailAddressBilling"
-												class="col-lg-3 col-form-label">Email</label>
-											<div class="col-lg-9"><input id="txtEmailAddressBilling" name="txtEmailAddressBilling" type="text"
-													class="form-control"></div>
+										<div class="form-group row"><label for="email" class="col-lg-3 col-form-label">Email</label>
+											<div class="col-lg-9"><input id="email" name="email" type="text" class="form-control"></div>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-6">
-										<div class="form-group row"><label for="txtAddress1Billing"
-												class="col-lg-3 col-form-label">Alamat</label>
-											<div class="col-lg-9"><textarea id="txtAddress1Billing" name="txtAddress1Billing" rows="4"
+										<div class="form-group row"><label for="alamat" class="col-lg-3 col-form-label">Alamat</label>
+											<div class="col-lg-9"><textarea id="alamat" name="alamat" rows="4"
 													class="form-control"></textarea></div>
 										</div>
 									</div>
 								</div>
-								<div class="row">
+
+								<div class="form-group row">
+									<label for="provinsi" class="col-xl-3 col-form-label">Provinsi</label>
+									<div class="col-xl-3">
+										<?php $data_provinsi = $this->db->get('t_provinsi')->result(); ?>
+										<select id="select-provinsi" class="form-control" name="provinsi">
+											<option value="0"></option>
+											<?php foreach($data_provinsi as $data): ?>
+											<option value="<?= $data->id ?>"><?= $data->provinsi ?></option>
+											<?php endforeach; ?>
+										</select>
+									</div>
+									<div class="col-xl-3">
+										<select id="select-kota" class="form-control" name="kota">
+										</select>
+									</div>
+									<div class="col-xl-3">
+										<select id="select-kecamatan" class="form-control" name="kecamatan">
+										</select>
+									</div>
+								</div>
+
+
+								<!-- <div class="row">
 									<div class="col-md-6">
-										<div class="form-group row"><label for="txtCityBilling"
-												class="col-lg-3 col-form-label">Kecamatan</label>
-											<div class="col-lg-9"><input id="txtCityBilling" name="txtCityBilling" type="text"
-													class="form-control">
+										<div class="form-group row"><label for="provinsi" class="col-lg-3 col-form-label">Provinsi</label>
+											<?php $data_provinsi = $this->db->get('t_provinsi')->result(); ?>
+											<div class="col-lg-9"><select id="provinsi" name="provinsi" class="form-control">
+													<option value="0"></option>
+													<?php foreach($data_provinsi as $data): ?>
+													<option value="<?= $data->id ?>"><?= $data->provinsi ?></option>
+													<?php endforeach; ?>
 											</div>
 										</div>
 									</div>
 								</div>
+								
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group row"><label for="txtCityBilling" class="col-lg-3 col-form-label">Kota</label>
@@ -95,26 +117,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</div>
 									<div class="col-md-6">
 										<div class="form-group row"><label for="txtStateProvinceBilling"
-												class="col-lg-3 col-form-label">Provinsi</label>
+												class="col-lg-3 col-form-label">Kecamatan</label>
 											<div class="col-lg-9"><input id="txtStateProvinceBilling" name="txtStateProvinceBilling"
 													type="text" class="form-control"></div>
 										</div>
 									</div>
-								</div>
+								</div> -->
+
+
+
+
 								<div class="row">
 									<div class="col-md-6">
-										<div class="form-group row"><label for="txtCityBilling"
-												class="col-lg-3 col-form-label">Negara</label>
-											<div class="col-lg-9"><input id="txtCityBilling" name="txtCityBilling" type="text"
-													class="form-control">
+										<div class="form-group row"><label for="negara" class="col-lg-3 col-form-label">Negara</label>
+											<div class="col-lg-9"><input id="negara" name="negara" type="text" class="form-control">
 											</div>
 										</div>
 									</div>
 									<div class="col-md-6">
-										<div class="form-group row"><label for="txtStateProvinceBilling"
-												class="col-lg-3 col-form-label">Kode POS</label>
-											<div class="col-lg-9"><input id="txtStateProvinceBilling" name="txtStateProvinceBilling"
-													type="text" class="form-control"></div>
+										<div class="form-group row"><label for="kodePos" class="col-lg-3 col-form-label">Kode POS</label>
+											<div class="col-lg-9"><input id="kodePos" name="kodePos" type="text" class="form-control"></div>
 										</div>
 									</div>
 								</div>
@@ -131,12 +153,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<div class="form-group row"><label for="txtStateProvinceBilling"
 												class="col-lg-3 col-form-label">Tempo Kredit</label>
 											<div class="col-lg-9"><input id="txtStateProvinceBilling" name="txtStateProvinceBilling"
-													type="number" class="form-control"></div>
+													type="text" class="form-control"></div>
 										</div>
-                  </div>
-                </div>
-                <div class="form-group"></div><button type="submit"
-                          class="btn btn-primary">Submit</button>
+									</div>
+								</div>
+								<button id="btnSubmit" type="submit" class="btn btn-success" name="simpanData">Submit</button>
 							</div>
 							</form>
 						</div>
@@ -152,6 +173,73 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- ============================================================== -->
 	</div><!-- END wrapper -->
 	<?php $this->load->view("_partials/js.php") ?>
+	<script>
+		$(document).ready(function () {
+			$('#select-kota').attr('disabled', 'true');
+			$('#select-kecamatan').hide();
+
+			// $('#select-kategori').change(function () {
+			// 	let id = $(this).val();
+			// 	if (id == 0) {
+			// 		$('#select-sub-kategori').attr('disabled', 'true');
+			// 	} else {
+			// 		$('#select-sub-kategori').removeAttr('disabled');
+			// 	}
+			// 	loadSubKategori(id);
+			// });
+
+			$('#select-provinsi').change(function () {
+				let id = $(this).val();
+				if (id == 0) {
+					$('#select-kota').attr('disabled', 'true');
+				} else {
+					$('#select-kota').removeAttr('disabled');
+				}
+
+				if (id == 2) {
+					$('#select-kecamatan').show();
+				} else {
+					$('#select-kecamatan').empty().hide();
+				}
+
+				loadKota(id);
+			});
+
+			$('#select-kota').change(function () {
+				let id = $('#select-provinsi').val();
+				let kota = $('#select-kota').val();
+				loadKecamatan(id, kota);
+			});
+
+			// $('#upload-image').change(function (event) {
+			// 	let reader = new FileReader();
+			// 	reader.onload = function () {
+			// 		$('#image-preview').attr('src', reader.result);
+			// 	}
+			// 	reader.readAsDataURL(event.target.files[0]);
+			// });
+		});
+
+
+		// function loadSubKategori(id) {
+		// 	$.get("<?= base_url('produk/load_sub_kategori/') ?>" + id, function (data) {
+		// 		$('#select-sub-kategori').html(data);
+		// 	});
+		// }
+
+		function loadKota(id) {
+			$.get("<?= base_url('customer/kota/') ?>" + id, function (data) {
+				$('#select-kota').html(data);
+			});
+		}
+
+		function loadKecamatan(id, kota) {
+			$.get(`<?= base_url('customer/kecamatan/') ?>${id}/${kota}`, function (data) {
+				$('#select-kecamatan').html(data);
+			});
+		}
+
+	</script>
 
 </body>
 

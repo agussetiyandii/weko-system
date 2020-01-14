@@ -63,13 +63,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										</tr>
 									</thead>
 									<tbody>
+										<?php $no = 1; ?>
+										<?php foreach($dataCustomer as $data): ?>
 										<tr>
-											<td style="text-align:center">1</td>
-											<td>Edi</td>
-											<td>0811 1234 567</td>
-											<td>Batam</td>
-											<td style="text-align:right">Rp50.000.000</td>
-											<td style="text-align:right">Rp2.000.000</td>
+											<td style="text-align:center"><?= $no++ ?></td>
+											<td><?= $data['nama_customer'] ?></td>
+											<td><?= $data['no_telp'] ?></td>
+											<td><?= $data['kota'] ?></td>
+											<td style="text-align:right">Rp <?= $data['kredit'] ?></td>
+											<td style="text-align:right">Rp <?= $data['sisa_hutang'] ?></td>
 											<td style="text-align:center">
 													<a href="<?= base_url('#') ?>"
 														class="btn btn-outline-warning mdi dripicons-document-edit mr-2"></a>
@@ -77,35 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 														class="btn btn-outline-danger mdi dripicons-document-delete mr-2"></a>
 											</td>
 										</tr>
-										<tr>
-											<td style="text-align:center">2</td>
-											<td>Boy</td>
-											<td>0811 1234 567</td>
-											<td>Batam</td>
-											<td style="text-align:right">Rp50.000.000</td>
-											<td style="text-align:right">Rp2.000.000</td>
-											<td style="text-align:center">
-													<a href="<?= base_url('#') ?>"
-														class="btn btn-outline-warning mdi dripicons-document-edit mr-2"></a>
-													<a href="<?= base_url('#') ?>"
-														class="btn btn-outline-danger mdi dripicons-document-delete mr-2"></a>
-											</td>
-										</tr>
-										<tr>
-											<td style="text-align:center">3</td>
-											<td>Rusdi</td>
-											<td>0811 1234 567</td>
-											<td>Batam</td>
-											<td style="text-align:right">Rp50.000.000</td>
-											<td style="text-align:right">Rp2.000.000</td>
-											<td style="text-align:center">
-													<a href="<?= base_url('#') ?>"
-														class="btn btn-outline-warning mdi dripicons-document-edit mr-2"></a>
-													<a href="<?= base_url('#') ?>"
-														class="btn btn-outline-danger mdi dripicons-document-delete mr-2"></a>
-											</td>
-										</tr>
-
+										<?php endforeach; ?>
 									</tbody>
 								</table>
 							</div>
