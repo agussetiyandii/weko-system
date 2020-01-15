@@ -30,7 +30,7 @@ class Produk extends CI_Controller {
             $file_name = $data['file_name'];
         }
 
-        // proses penyimpanan file
+        // proses penyimpanan data ke database
 
     }
 
