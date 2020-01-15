@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											<td><?= $data['nama_customer'] ?></td>
 											<td><?= $data['no_telp'] ?></td>
 											<td><?= $data['kota'] ?></td>
-											<td style="text-align:right">Rp <?= $data['kredit'] ?></td>
+											<td style="text-align:right">Rp <?= $data['max_kredit'] ?></td>
 											<td style="text-align:right">Rp <?= $data['sisa_hutang'] ?></td>
 											<td style="text-align:center">
 													<a href="<?= base_url('#') ?>"
