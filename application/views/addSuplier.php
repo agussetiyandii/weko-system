@@ -41,85 +41,95 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="col-12">
 						<div class="card">
 							<div class="card-body">
+							<form action="<?= base_url('suplier/simpan_suplier') ?>" method="post" enctype="multipart/form-data">
 								<div class="row">
 									<div class="col-md-6">
-										<div class="form-group row"><label for="txtFirstNameBilling"
+										<div class="form-group row"><label for="namaSuplier"
 												class="col-lg-3 col-form-label">Nama</label>
-											<div class="col-lg-9"><input id="txtFirstNameBilling" name="txtFirstNameBilling" type="text"
+											<div class="col-lg-9"><input id="namaSuplier" name="namaSuplier" type="text"
 													class="form-control"></div>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-6">
-										<div class="form-group row"><label for="txtCompanyBilling" class="col-lg-3 col-form-label">No.
+										<div class="form-group row"><label for="noTelp" class="col-lg-3 col-form-label">No.
 												Telp</label>
-											<div class="col-lg-9"><input id="txtCompanyBilling" name="txtCompanyBilling" type="text"
+											<div class="col-lg-9"><input id="noTelp" name="noTelp" type="text"
 													class="form-control"></div>
 										</div>
 									</div>
 									<div class="col-md-6">
-										<div class="form-group row"><label for="txtEmailAddressBilling"
+										<div class="form-group row"><label for="email"
 												class="col-lg-3 col-form-label">Email</label>
-											<div class="col-lg-9"><input id="txtEmailAddressBilling" name="txtEmailAddressBilling" type="text"
+											<div class="col-lg-9"><input id="email" name="email" type="text"
 													class="form-control"></div>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-6">
-										<div class="form-group row"><label for="txtAddress1Billing"
+										<div class="form-group row"><label for="alamat"
 												class="col-lg-3 col-form-label">Alamat</label>
-											<div class="col-lg-9"><textarea id="txtAddress1Billing" name="txtAddress1Billing" rows="4"
+											<div class="col-lg-9"><textarea id="alamat" name="alamat" rows="4"
 													class="form-control"></textarea></div>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-6">
-										<div class="form-group row"><label for="txtCityBilling"
-												class="col-lg-3 col-form-label">Kecamatan</label>
-											<div class="col-lg-9"><input id="txtCityBilling" name="txtCityBilling" type="text"
-													class="form-control">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group row"><label for="txtCityBilling" class="col-lg-3 col-form-label">Kota</label>
-											<div class="col-lg-9"><input id="txtCityBilling" name="txtCityBilling" type="text"
-													class="form-control">
-											</div>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group row"><label for="txtStateProvinceBilling"
+										<div class="form-group row"><label for="provinsi"
 												class="col-lg-3 col-form-label">Provinsi</label>
-											<div class="col-lg-9"><input id="txtStateProvinceBilling" name="txtStateProvinceBilling"
+											<div class="col-lg-9"><input id="provinsi" name="provinsi" type="text"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group row"><label for="kota" class="col-lg-3 col-form-label">Kota</label>
+											<div class="col-lg-9"><input id="kota" name="kota" type="text"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group row"><label for="kecamatan"
+												class="col-lg-3 col-form-label">Kecamatan</label>
+											<div class="col-lg-9"><input id="kecamatan" name="kecamatan" type="text"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group row"><label for="negara"
+												class="col-lg-3 col-form-label">Negara</label>
+											<div class="col-lg-9"><input id="negara" name="negara"
 													type="text" class="form-control"></div>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-6">
-										<div class="form-group row"><label for="txtCityBilling"
-												class="col-lg-3 col-form-label">Negara</label>
-											<div class="col-lg-9"><input id="txtCityBilling" name="txtCityBilling" type="text"
+										<div class="form-group row"><label for="kelurahan"
+												class="col-lg-3 col-form-label">Kelurahan</label>
+											<div class="col-lg-9"><input id="kelurahan" name="kelurahan" type="text"
 													class="form-control">
 											</div>
 										</div>
 									</div>
 									<div class="col-md-6">
-										<div class="form-group row"><label for="txtStateProvinceBilling"
+										<div class="form-group row"><label for="kodePos"
 												class="col-lg-3 col-form-label">Kode POS</label>
-											<div class="col-lg-9"><input id="txtStateProvinceBilling" name="txtStateProvinceBilling"
+											<div class="col-lg-9"><input id="kodePos" name="kodePos"
 													type="text" class="form-control"></div>
 										</div>
 									</div>
 								</div>
-                <div class="form-group"></div><button type="submit"
-                          class="btn btn-primary">Submit</button>
+                <button id="btnSubmit" type="submit" class="btn btn-success" name="simpanData">Submit</button>
 							</div>
 							</form>
 						</div>
