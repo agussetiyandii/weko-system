@@ -74,12 +74,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</tr>
 								</thead>
 								<tbody>
+									<?php $no = 1; ?>
+									<?php foreach($dataProduk as $produk): ?>
+									<?php $getMerek = $this->db->get_where('t_merek', ['id' => $produk['id_merek']])->row_array(); ?>
+									<?php $getKategori = $this->db->get_where('t_kategori', ['id' => $produk['id_kategori']])->row_array(); ?>
+									<?php $getFullKategori = $this->db->get_where('t_sub_kategori', ['id' => $produk['id_full_kategori']])->row_array(); ?>
 									<tr>
-										<td style="text-align:center">1</td>
-										<td></td>
-										<td>DELL</td>
-										<td>DELL PRECESIION M6400 i5 6/320/128</td>
-										<td>LAPTOP/NOTEBOOK</td>
+										<td style="text-align:center"><?= $no++; ?></td>
+										<td>
+											<img class="img-thumbnail" src="assets/images/products/<?= $produk['gambar'] ?>" alt="">
+										</td>
+										<td><?= $getMerek['merek']; ?></td>
+										<td><?= $produk['nama_barang'] ?></td>
+										<td><?= $getKategori['kategori'] ?>/<?= $getFullKategori['sub_kategori'] ?></td>
 										<td>2 pcs</td>
 										<td>1 pcs</td>
 										<td>1 pcs</td>
@@ -92,6 +99,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												class="btn btn-outline-danger mdi dripicons-document-delete mr-2"></a>
 										</td>
 									</tr>
+									<?php endforeach; ?>
 								</tbody>
 							</table>
 						</div>
