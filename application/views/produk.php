@@ -76,9 +76,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<tbody>
 									<?php $no = 1; ?>
 									<?php foreach($dataProduk as $produk): ?>
-									<?php $getMerek = $this->db->get_where('t_merek', ['id' => $produk['id_merek']])->row_array(); ?>
-									<?php $getKategori = $this->db->get_where('t_kategori', ['id' => $produk['id_kategori']])->row_array(); ?>
-									<?php $getFullKategori = $this->db->get_where('t_sub_kategori', ['id' => $produk['id_full_kategori']])->row_array(); ?>
+									<?php 
+										$getKodeBarang = $produk['kode_barang'];
+										$getMerek = $this->db->get_where('t_merek', ['id' => $produk['id_merek']])->row_array();
+										$getKategori = $this->db->get_where('t_kategori', ['id' => $produk['id_kategori']])->row_array();
+										$getFullKategori = $this->db->get_where('t_sub_kategori', ['id' => $produk['id_full_kategori']])->row_array();
+									?>
 									<tr>
 										<td style="text-align:center"><?= $no++; ?></td>
 										<td>
@@ -93,9 +96,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<td>5 pcs</td>
 										<td>9 pcs</td>
 										<td style="text-align:center">
-											<a href="<?= base_url('#') ?>"
+											<a href="<?= base_url('produk/pageEditProduk/'.$getKodeBarang) ?>"
 												class="btn btn-outline-warning mdi dripicons-document-edit mr-2"></a>
-											<a href="<?= base_url('#') ?>"
+											<a href="<?= base_url('produk/deleteProduk/'.$getKodeBarang) ?>"
 												class="btn btn-outline-danger mdi dripicons-document-delete mr-2"></a>
 										</td>
 									</tr>

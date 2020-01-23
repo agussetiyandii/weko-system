@@ -81,6 +81,24 @@ class Produk extends CI_Controller {
 
     }
 
+    public function pageEditProduk($kodeBarang){
+        $data['asalBarang'] = [
+            'Stock kantor',
+            'Stock pembelian',
+            'Stock supplier'
+        ];
+        $data['produk'] = $this->produk->getDetailProduk($kodeBarang)->row();
+        $this->load->view('pageEditProduk', $data);
+    }
+
+    public function saveEditProduk(){
+
+    }
+
+    public function deleteProduk($kodeBarang){
+
+    }
+
     // fungsi-fungsi untuk melakukan jquery AJAX
 
     public function load_sub_kategori($id){
