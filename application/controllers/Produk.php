@@ -101,8 +101,8 @@ class Produk extends CI_Controller {
 
     // fungsi-fungsi untuk melakukan jquery AJAX
 
-    public function load_sub_kategori($id){
-        $data['data_sub_kategori'] = $this->kategori->getKategoriById($id)->result();
+    public function load_sub_kategori($idKategori){
+        $data['data_sub_kategori'] = $this->kategori->getSubKategori($idKategori)->result();
         $this->load->view('ajax/tambah-produk/sub-kategori', $data);
     }
 

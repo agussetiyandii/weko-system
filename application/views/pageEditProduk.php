@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="content-page">
 		<div class="content">
 			<div class="card-body">
-				<h4>Tambah data barang</h4>
+				<h4>Ubah data barang</h4>
 				<div class="row">
 					<div class="col-xl-3">
 						<form action="<?= base_url('produk/saveEditProduk') ?>" method="post"
