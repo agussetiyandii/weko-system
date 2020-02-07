@@ -96,7 +96,8 @@ class Produk extends CI_Controller {
     }
 
     public function deleteProduk($kodeBarang){
-
+        $this->produk->deleteProduk($kodeBarang);
+        redirect('/produk');
     }
 
     // fungsi-fungsi untuk melakukan jquery AJAX
