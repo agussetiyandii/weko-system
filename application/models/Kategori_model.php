@@ -15,4 +15,8 @@ class Kategori_model extends CI_Model {
     	return $this->db->get_where('t_sub_kategori', ['id_kategori' => $idKategori]);
     }
 
+    public function getFullKategori($id){
+    	return $this->db->get_where('t_sub_kategori', ['id' => $id]);
+    }
+
 }

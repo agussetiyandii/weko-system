@@ -117,6 +117,23 @@ class Produk extends CI_Controller {
         $this->load->view('ajax/tambah-produk/sub-lokasi-2', $data);
     }
 
+    // fungsi-fungsi untuk melakukan jquery AJAX yang data editable
+
+    public function edit_load_sub_kategori($idKategori){
+        $data['data_sub_kategori'] = $this->kategori->getSubKategori($idKategori)->result();
+        $this->load->view('ajax/edit-produk/sub-kategori', $data);
+    }
+
+    public function edit_load_sub_lokasi_1($id){
+        $data['data_sub_lokasi_1'] = $this->lokasi->getSubLokasi1($id)->result();
+        $this->load->view('ajax/edit-produk/sub-lokasi-1', $data);
+    }
+
+    public function edit_load_sub_lokasi_2($id, $sub_lokasi_1){
+        $data['data_sub_lokasi_2'] = $this->lokasi->getSubLokasi2($id, $sub_lokasi_1)->result();
+        $this->load->view('ajax/edit-produk/sub-lokasi-2', $data);
+    }
+
 }
 
 ?>
