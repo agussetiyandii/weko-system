@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2020 at 11:05 AM
+-- Generation Time: Feb 20, 2020 at 06:57 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -83001,9 +83001,7 @@ CREATE TABLE `t_penempatan_barang` (
 --
 
 INSERT INTO `t_penempatan_barang` (`id`, `kode_barang`, `asal_barang`, `id_lokasi`, `id_full_lokasi`, `kondisi`, `info_barang`, `jumlah`, `remark`) VALUES
-(1, 'LAP001', 'Stock kantor', 1, 1, 'Baru', 'Sudah Tes', 50, 'Siap dipakai dengan keyboard backlit'),
-(2, 'PR001', 'Stock kantor', 2, 9, 'Baru', 'Sudah Tes', 100, 'Lengkap dengan tinta dan scanner'),
-(3, 'PR001', 'Stock kantor', 2, 3, 'Baru', 'Sudah Tes', 100, 'Sudah termasuk tinta printer dan scanner\r\n');
+(2, 'LP001L1', 'Stock pembelian', 1, 1, 'Baru', 'Sudah Tes', 0, 'Sudah layak pakai');
 
 -- --------------------------------------------------------
 
@@ -83027,9 +83025,7 @@ CREATE TABLE `t_produk` (
 --
 
 INSERT INTO `t_produk` (`id`, `kode_barang`, `nama_barang`, `id_merek`, `id_kategori`, `id_full_kategori`, `harga`, `gambar`) VALUES
-(2, 'LAP001', 'Lenovo Gaming', 8, 1, 2, 5000000, 'laptop_lenovo.jpg'),
-(3, 'PR001', 'Printer Canon', 0, 6, 38, 500000, 'printer.jpg'),
-(4, 'PR001', 'Printer Canon', 0, 6, 38, 400000, 'printer1.jpg');
+(2, 'LP001L1', 'Laptop LENOVO GAMING', 8, 1, 2, 6000000, 'laptop_lenovo3.jpg');
 
 -- --------------------------------------------------------
 
@@ -83090,19 +83086,61 @@ INSERT INTO `t_provinsi` (`id`, `provinsi`) VALUES
 
 CREATE TABLE `t_stok_barang` (
   `id` int(11) NOT NULL,
-  `nama_barang` varchar(128) NOT NULL,
+  `kode_barang` varchar(128) NOT NULL,
   `stok_singapura` int(11) DEFAULT '0',
   `stok_batam` int(11) DEFAULT '0',
   `stok_medan` int(11) DEFAULT '0',
   `stok_jakarta` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `t_stok_barang`
+-- Table structure for table `t_stok_batam`
 --
 
-INSERT INTO `t_stok_barang` (`id`, `nama_barang`, `stok_singapura`, `stok_batam`, `stok_medan`, `stok_jakarta`) VALUES
-(3, 'Lenovo gaming', 0, 50, 0, 0);
+CREATE TABLE `t_stok_batam` (
+  `id` int(11) NOT NULL,
+  `kode_barang` varchar(255) NOT NULL,
+  `stok_ready` int(11) DEFAULT '0',
+  `stok_pending` int(11) DEFAULT '0',
+  `stok_rusak` int(11) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `t_stok_batam`
+--
+
+INSERT INTO `t_stok_batam` (`id`, `kode_barang`, `stok_ready`, `stok_pending`, `stok_rusak`) VALUES
+(2, 'LP001L1', 0, 50, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t_stok_jakarta`
+--
+
+CREATE TABLE `t_stok_jakarta` (
+  `id` int(11) NOT NULL,
+  `kode_barang` varchar(255) NOT NULL,
+  `stok_pending` int(11) DEFAULT '0',
+  `stok_ready` int(11) DEFAULT '0',
+  `stok_rusak` int(11) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t_stok_medan`
+--
+
+CREATE TABLE `t_stok_medan` (
+  `id` int(11) NOT NULL,
+  `kode_barang` varchar(255) NOT NULL,
+  `stok_ready` int(11) DEFAULT '0',
+  `stok_pending` int(11) DEFAULT '0',
+  `stok_rusak` int(11) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -83335,6 +83373,18 @@ ALTER TABLE `t_stok_barang`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `t_stok_batam`
+--
+ALTER TABLE `t_stok_batam`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `t_stok_jakarta`
+--
+ALTER TABLE `t_stok_jakarta`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `t_sub_kategori`
 --
 ALTER TABLE `t_sub_kategori`
@@ -83390,19 +83440,31 @@ ALTER TABLE `t_merek`
 -- AUTO_INCREMENT for table `t_penempatan_barang`
 --
 ALTER TABLE `t_penempatan_barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `t_produk`
 --
 ALTER TABLE `t_produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `t_stok_barang`
 --
 ALTER TABLE `t_stok_barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `t_stok_batam`
+--
+ALTER TABLE `t_stok_batam`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `t_stok_jakarta`
+--
+ALTER TABLE `t_stok_jakarta`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `t_sub_kategori`
