@@ -78,6 +78,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<?php foreach($dataProduk as $produk): ?>
 									<?php 
 										$getKodeBarang = $produk['kode_barang'];
+										$dataStokBatam = $this->db->get_where('t_stok_batam', ['kode_barang' => $getKodeBarang])->row_array();
+										$dataStokMedan = $this->db->get_where('t_stok_medan', ['kode_barang' => $getKodeBarang])->row_array();
+										$dataStokJakarta = $this->db->get_where('t_stok_jakarta', ['kode_barang' => $getKodeBarang])->row_array();
+
+										$stokBatam = $dataStokBatam['stok_ready'] + $dataStokBatam['stok_pending'] + $dataStokBatam['stok_rusak'];
+										$stokMedan = $dataStokMedan['stok_ready'] + $dataStokMedan['stok_pending'] + $dataStokMedan['stok_rusak'];
+										$stokJakarta = $dataStokJakarta['stok_ready'] + $dataStokJakarta['stok_pending'] + $dataStokJakarta['stok_rusak'];
+
+										$totalStok = $stokBatam + $stokMedan + $stokJakarta;
+
 										$getMerek = $this->db->get_where('t_merek', ['id' => $produk['id_merek']])->row_array();
 										$getKategori = $this->db->get_where('t_kategori', ['id' => $produk['id_kategori']])->row_array();
 										$getFullKategori = $this->db->get_where('t_sub_kategori', ['id' => $produk['id_full_kategori']])->row_array();
@@ -90,11 +100,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										<td><?= $getMerek['merek']; ?></td>
 										<td><?= $produk['nama_barang'] ?></td>
 										<td><?= $getKategori['kategori'] ?>/<?= $getFullKategori['sub_kategori'] ?></td>
-										<td>2 pcs</td>
-										<td>1 pcs</td>
-										<td>1 pcs</td>
-										<td>5 pcs</td>
-										<td>9 pcs</td>
+										<td><?= $stokBatam ?> pcs</td>
+										<td><?= $stokMedan ?> pcs</td>
+										<td>0 pcs</td>
+										<td><?= $stokJakarta ?> pcs</td>
+										<td><?= $totalStok ?> pcs</td>
 										<td style="text-align:center">
 											<a href="<?= base_url('produk/pageEditProduk/'.$getKodeBarang) ?>"
 												class="btn btn-outline-warning mdi dripicons-document-edit mr-2"></a>

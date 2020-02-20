@@ -8,6 +8,7 @@ class Produk extends CI_Controller {
         $this->load->model('Produk_model', 'produk');
         $this->load->model('Lokasi_model', 'lokasi');
         $this->load->model('Kategori_model', 'kategori');
+        $this->load->model('Stok_model', 'stok');
     }
 
     public function index(){
@@ -40,18 +41,20 @@ class Produk extends CI_Controller {
 
         /* proses penyimpanan data ke database */
         // 1. Ambil full lokasi = id dari tabel t_sub_lokasi
+        $lokasi = '';
         $idLokasi = $this->input->post('idLokasiBarang');
         $subLokasi1 = $this->input->post('subLokasiBarang1');
         $subLokasi2 = $this->input->post('subLokasiBarang2');
         if($subLokasi2 == NULL) $subLokasi2 = '';
 
         $getSubLokasi = $this->lokasi->getIdFullLokasi($idLokasi, $subLokasi1, $subLokasi2)->row_array();
-        
         $idFullLokasi = $getSubLokasi['id'];
+
+        $kodeBarang = $this->input->post('kodeBarang').'L'.$idLokasi;
 
         // 2. Tangkap data dari form
         $insert_t_produk = [
-            'kode_barang' => $this->input->post('kodeBarang'),
+            'kode_barang' => $kodeBarang,
             'nama_barang' => $this->input->post('namaBarang'),
             'id_merek' => $this->input->post('idMerek'),
             'id_kategori' => $this->input->post('idKategoriBarang'),
@@ -61,19 +64,26 @@ class Produk extends CI_Controller {
         ];
 
         $insert_t_penempatan_barang = [
-            'kode_barang' => $this->input->post('kodeBarang'),
+            'kode_barang' => $kodeBarang,
             'asal_barang' => $this->input->post('asalBarang'),
             'id_lokasi' => $this->input->post('idLokasiBarang'),
             'id_full_lokasi' => $idFullLokasi,
             'kondisi' => $this->input->post('kondisi'),
             'info_barang' => $this->input->post('infoBarang'),
-            'jumlah' => $this->input->post('jumlah'),
             'remark' => $this->input->post('remark')
         ];
+
+        $insert_stok = [
+            'kode_barang' => $kodeBarang,
+            'stok_pending' => $this->input->post('jumlah')
+        ];
+
+        $lokasi = $this->lokasi->getLokasiById($idLokasi)->row()->lokasi;
 
         // 3. Simpan ke database
         $this->produk->insertProduk($insert_t_produk);
         $this->lokasi->insertPenempatanBarang($insert_t_penempatan_barang);
+        $this->stok->insertStok('t_stok_'.$lokasi, $insert_stok);
 
         // 4. Alihkan ke halaman produk
         redirect('produk');
@@ -115,23 +125,6 @@ class Produk extends CI_Controller {
     public function load_sub_lokasi_2($id, $sub_lokasi_1){
         $data['data_sub_lokasi_2'] = $this->lokasi->getSubLokasi2($id, $sub_lokasi_1)->result();
         $this->load->view('ajax/tambah-produk/sub-lokasi-2', $data);
-    }
-
-    // fungsi-fungsi untuk melakukan jquery AJAX yang data editable
-
-    public function edit_load_sub_kategori($idKategori){
-        $data['data_sub_kategori'] = $this->kategori->getSubKategori($idKategori)->result();
-        $this->load->view('ajax/edit-produk/sub-kategori', $data);
-    }
-
-    public function edit_load_sub_lokasi_1($id){
-        $data['data_sub_lokasi_1'] = $this->lokasi->getSubLokasi1($id)->result();
-        $this->load->view('ajax/edit-produk/sub-lokasi-1', $data);
-    }
-
-    public function edit_load_sub_lokasi_2($id, $sub_lokasi_1){
-        $data['data_sub_lokasi_2'] = $this->lokasi->getSubLokasi2($id, $sub_lokasi_1)->result();
-        $this->load->view('ajax/edit-produk/sub-lokasi-2', $data);
     }
 
 }

@@ -30,6 +30,7 @@ class Produk_model extends CI_Model {
     public function deleteProduk($kodeBarang){
         $this->db->delete('t_produk', ['kode_barang' => $kodeBarang]);
         $this->db->delete('t_penempatan_barang', ['kode_barang' => $kodeBarang]);
+        $this->db->delete('t_stok', ['kode_barang' => $kode_barang]);
     }
 
     

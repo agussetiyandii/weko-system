@@ -7,6 +7,10 @@ class Lokasi_model extends CI_Model {
         return $this->db->get('t_lokasi');
     }
 
+    public function getLokasiById($id){
+        return $this->db->get_where('t_lokasi', ['id' => $id]);
+    }
+
     public function getIdFullLokasi($idLokasi, $subLokasi1, $subLokasi2){
         return $this->db->get_where('t_sub_lokasi', [
             'id_lokasi' => $idLokasi,
